@@ -20,6 +20,12 @@ public class Raycast : MonoBehaviour
                 // Debug nama objek yang kena ray
                 Debug.Log("Ray hit: " + hit.collider.name);
 
+                if (hit.collider.name == "StartExhibition")
+                {
+                    // Panggil fungsi untuk memulai eksibisi
+                    Debug.Log("Mulai Eksibisi!");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Scene2");
+                }
                 // Coba panggil event click jika itu UI
                 var pointer = new PointerEventData(EventSystem.current);
                 ExecuteEvents.Execute(hit.collider.gameObject, pointer, ExecuteEvents.pointerClickHandler);
